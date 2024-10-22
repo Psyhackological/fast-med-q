@@ -54,7 +54,7 @@ Inspired by the functionality of [znanylekarz.pl](https://www.znanylekarz.pl/), 
 
 ---
 ## How it Works?
-![uml]()
+![uml](assets/UML.png)
 
 ---
 
