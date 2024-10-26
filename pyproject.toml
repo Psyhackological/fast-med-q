@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "fast-med-q"
+version = "0.1.0"
+description = "Be faster in medical queue! Modern safe and fast Python only."
+authors = [
+  "Psyhackological <konradkon@duck.com>",
+  "Daniil Ivzhenko <daniilagimail.pl@gmail.com>",
+]
+license = "GPL-3.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
