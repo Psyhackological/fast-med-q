@@ -43,7 +43,7 @@ class Database:
             print(hero)
 
 
-if "__main__" == __name__:
+if __name__ == "__main__":
     my_database = Database()
     my_database.create_db()
     my_database.select_hero("Spider-Boy")
