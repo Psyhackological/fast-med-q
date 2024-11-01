@@ -1,6 +1,6 @@
 from sqlmodel import Session, SQLModel, select
-from models import Hero
-from db_env import engine
+from .models import Hero
+from .db_env import engine
 
 
 class Database:
