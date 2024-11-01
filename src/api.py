@@ -4,6 +4,7 @@ from fastapi import Depends, FastAPI, HTTPException, Query
 from sqlmodel import Session, SQLModel, select, func
 from .models import Hero
 from .db_env import engine
+from .gui import router as gui_router
 
 app = FastAPI()
 
@@ -67,3 +68,6 @@ def delete_hero(hero_id: int, session: Session = Depends(get_session)):
     session.delete(hero)
     session.commit()
     return {"ok": True}
+
+
+app.include_router(gui_router)
