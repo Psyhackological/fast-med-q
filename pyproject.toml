@@ -1,29 +1,20 @@
-[tool.poetry]
+[project]
 name = "fast-med-q"
 version = "0.1.0"
 description = "Be faster in medical queue! Modern safe and fast Python only."
-authors = [
-  "Psyhackological <konradkon@duck.com>",
-  "Daniil Ivzhenko <daniilagimail.pl@gmail.com>",
-]
-license = "GPL-3.0"
 readme = "README.md"
-package-mode = false
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.115.6",
+    "psycopg2-binary>=2.9.10",
+    "sqlmodel>=0.0.22",
+    "streamlit>=1.41.1",
+]
 
-[tool.poetry.dependencies]
-python = "^3.12"
-sqlmodel = "^0.0.22"
-psycopg2-binary = "^2.9.10"
-fastapi = {extras = ["standard"], version = "^0.115.4"}
-fastui = "^0.7.0"
-
-
-[tool.poetry.group.dev.dependencies]
-mypy = "^1.13.0"
-pylint = "^3.3.1"
-ruff = "^0.7.1"
-python-dotenv = "^1.0.1"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+    "mypy>=1.14.1",
+    "pylint>=3.3.3",
+    "python-dotenv>=1.0.1",
+    "ruff>=0.8.5",
+]
