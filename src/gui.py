@@ -1,18 +1,22 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import HTMLResponse
-from fastui import FastUI, AnyComponent, prebuilt_html, components as c
+from fastui import FastUI, prebuilt_html, components as c
 from fastui.components.display import DisplayLookup
 from fastui.events import GoToEvent, BackEvent
 from sqlmodel import Session, select
+from typing import Any  # Replace AnyComponent if necessary
 
 from .models import Hero
 from .db_env import engine
+
+# Ensure Pydantic models are finalized
+c.Page.model_rebuild()
 
 router = APIRouter()
 
 
 @router.get("/api/", response_model=FastUI, response_model_exclude_none=True)
-def heroes_table() -> list[AnyComponent]:
+def heroes_table() -> list[Any]:  # Replace AnyComponent with Any
     """
     Show a table of all heroes.
     """
@@ -30,7 +34,8 @@ def heroes_table() -> list[AnyComponent]:
                             field="name", on_click=GoToEvent(url="/hero/{id}/")
                         ),
                         # Display secret name
-                        DisplayLookup(field="secret_name", title="Secret Name"),
+                        DisplayLookup(field="secret_name",
+                                      title="Secret Name"),
                         # Display age as text
                         DisplayLookup(field="age", title="Age"),
                     ],
@@ -43,7 +48,7 @@ def heroes_table() -> list[AnyComponent]:
 @router.get(
     "/api/hero/{hero_id}/", response_model=FastUI, response_model_exclude_none=True
 )
-def hero_profile(hero_id: int) -> list[AnyComponent]:
+def hero_profile(hero_id: int) -> list[Any]:  # Replace AnyComponent with Any
     """
     Hero profile page.
     """
