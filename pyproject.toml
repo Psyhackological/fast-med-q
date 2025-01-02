@@ -5,7 +5,6 @@ description = "Be faster in medical queue! Modern safe and fast Python only."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "aiosqlite>=0.20.0",
     "asyncpg>=0.30.0",
     "fastapi-users[oauth,sqlalchemy]>=14.0.0",
     "fastapi[standard]>=0.115.6",

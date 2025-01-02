@@ -8,8 +8,7 @@ from fastapi_users.db import (
 )
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, relationship
-
-DATABASE_URL = "sqlite+aiosqlite:///./test.db"
+from .db_env import DATABASE_URL
 
 
 class Base(DeclarativeBase):
