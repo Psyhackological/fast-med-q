@@ -5,6 +5,8 @@ from fastapi_users.db import SQLAlchemyBaseUserTableUUID, SQLAlchemyUserDatabase
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
 from . import db_env
+from .schemas import RoleEnum
+from sqlalchemy import Column, String, Enum
 
 DATABASE_URL = db_env.create_database_url_from_env()
 
@@ -14,7 +16,9 @@ class Base(DeclarativeBase):
 
 
 class User(SQLAlchemyBaseUserTableUUID, Base):
-    pass
+    first_name = Column(String(length=50), nullable=False)
+    last_name = Column(String(length=50), nullable=False)
+    role = Column(Enum(RoleEnum), nullable=False)
 
 
 engine = create_async_engine(DATABASE_URL)
