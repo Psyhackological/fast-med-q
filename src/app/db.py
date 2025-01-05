@@ -4,9 +4,9 @@ from fastapi import Depends
 from fastapi_users.db import SQLAlchemyBaseUserTableUUID, SQLAlchemyUserDatabase
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
-from .db_env import DATABASE_URL
+from . import db_env
 
-DATABASE_URL = "sqlite+aiosqlite:///./test.db"
+DATABASE_URL = db_env.create_database_url_from_env()
 
 
 class Base(DeclarativeBase):
